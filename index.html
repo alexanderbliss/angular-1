@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="angular.min.js"></script>
-    <script src="clinet.js"></script>
+    <script src="client.js"></script>
 </head>
-<body>
-    
+
+<body ng-app="myApp">
+    <div ng-controller='GuessWhoController as guess'>
+        <input type="text" ng-model='guess.name'>
+        <input type="text" ng-model='guess.git'>
+        <button ng-click='guess.new()'>New</button>
+        <p>{{guess.message}}</p>
+        <ul>
+            <li ng-repeat=" person in guess.people">
+                <img ng-show="person.appear" ng-click='guess.random()' ng-src="https://github.com/{{person.github}}.png?size=80">
+                <!-- ng-click='guess.show(person)'  this was called for base mode -->
+            </li>
+        </ul>
+    </div>
 </body>
+
 </html>
