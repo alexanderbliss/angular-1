@@ -25,7 +25,7 @@ myApp.controller('GuessWhoController', function () {
     guess.random = function (person) {
         var rand = people[Math.floor(Math.random() * people.length)];
         guess.message = rand.name
-        if (rand.name === people){
+        if (rand.name === people.name){
             alert('you guessed correctly')
         }else{
             alert('try again')
